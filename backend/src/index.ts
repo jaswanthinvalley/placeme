@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import Db from "./db/Db.js";
+import route from "./Routes/Routes.js";
 import { RecruiterModel, UserModels } from "./Model/models.js";
 
 const app = express();
@@ -11,6 +12,11 @@ app.use(express.json());
 Db();
 
 app.listen(port, () => console.log(`the server is running in the ${port}`));
+
+
+app.use("/api/v1",route)
+
+
 
 app.get("/", (req, res) =>
   res.json({

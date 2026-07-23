@@ -1,4 +1,5 @@
 import mongoose from "mongoose"
+import { title } from "node:process";
 
 
 
@@ -36,5 +37,23 @@ const RecruiterSchema = new mongoose.Schema({
 
 })
 
+
+const JobSchema = new mongoose.Schema({
+  title: {
+    type : String,
+    required : true
+  },
+  salary: {
+    type : String,
+    require : true
+  },
+  description :{
+    type : String,
+    require :true
+  }
+
+})
+
 export const UserModels = mongoose.model("UserSchema",UserSchema)
 export const RecruiterModel = mongoose.model("RecruiterSchema",RecruiterSchema)
+export const JobModel = mongoose.model("JobSchema",JobSchema)
